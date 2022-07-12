@@ -1,5 +1,3 @@
-import org.gradle.jvm.tasks.Jar
-
 plugins {
     application
     kotlin("jvm") version "1.7.0"
@@ -24,26 +22,3 @@ dependencies {
 application {
     mainClass.set("com.gearsofleo.cloudrun.MainKt")
 }
-
-/*tasks.jar {
-    manifest.attributes["Main-Class"] = "com.gearsofleo.cloudrun.MainKt"
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-
-    from(dependencies)
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    //excludes = ['META-INF/*.RSA','META-INF/*.SF','META-INF/*.DSA']
-}*/
-
-// Shadow task depends on Jar task, so these configs are reflected for Shadow as well
-/*tasks.jar {
-    manifest.attributes["Main-Class"] = "com.gearsofleo.cloudrun.MainKt"
-}
-*/
-/*tasks {
-    "build" {
-        dependsOn(fatJar)
-    }
-}*/
